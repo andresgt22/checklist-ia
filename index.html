@@ -4,15 +4,28 @@
 <meta charset="UTF-8">
 <title>Checklist Metal IA 🤘</title>
 
-<!-- Fuente metal -->
 <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
 
 <style>
 body {
-    background: radial-gradient(circle, #000000, #1a0000);
+    background: url("https://www.transparenttextures.com/patterns/skulls.png"),
+                radial-gradient(circle, #000000, #1a0000);
     color: #e60000;
     font-family: 'Metal Mania', cursive;
     padding: 20px;
+    position: relative;
+}
+
+/* CAPA OSCURA ENCIMA */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: -1;
 }
 
 /* TÍTULO */
@@ -59,6 +72,12 @@ input[type="checkbox"] {
     accent-color: red;
 }
 
+/* TEXTO TACHADO */
+input:checked + span {
+    text-decoration: line-through;
+    color: gray;
+}
+
 /* BOTÓN */
 button {
     display: block;
@@ -78,12 +97,6 @@ button:hover {
     color: red;
     border: 1px solid red;
     box-shadow: 0 0 25px red;
-}
-
-/* EFECTO COMPLETADO */
-input:checked + span {
-    text-decoration: line-through;
-    color: gray;
 }
 </style>
 
@@ -109,35 +122,35 @@ input:checked + span {
 </div>
 
 <div class="section">
-<h2>3. IA</h2>
+<h2>3. Integración de IA</h2>
 <label><input type="checkbox"><span> Las herramientas de IA están justificadas.</span></label>
 <label><input type="checkbox"><span> La IA apoya el trabajo humano y no lo reemplaza.</span></label>
 <label><input type="checkbox"><span> Existe control humano sobre las decisiones.</span></label>
 </div>
 
 <div class="section">
-<h2>4. Planificación</h2>
+<h2>4. Planificación y comunicación</h2>
 <label><input type="checkbox"><span> Existe un sistema de planificación apoyado por IA.</span></label>
 <label><input type="checkbox"><span> Los canales de comunicación son claros.</span></label>
 <label><input type="checkbox"><span> La IA apoya la organización de la comunicación.</span></label>
 </div>
 
 <div class="section">
-<h2>5. Ética</h2>
+<h2>5. Ética y enfoque humano</h2>
 <label><input type="checkbox"><span> Se analizan los impactos éticos del uso de IA.</span></label>
 <label><input type="checkbox"><span> Se respeta la privacidad y los datos del equipo.</span></label>
 <label><input type="checkbox"><span> Las decisiones finales son humanas.</span></label>
 </div>
 
 <div class="section">
-<h2>6. Documento final</h2>
+<h2>6. Documento y presentación final</h2>
 <label><input type="checkbox"><span> El documento está completo y bien estructurado.</span></label>
 <label><input type="checkbox"><span> La presentación es clara y bien argumentada.</span></label>
 <label><input type="checkbox"><span> Todos los integrantes participan.</span></label>
 </div>
 
 <div class="section">
-<h2>7. Reflexión</h2>
+<h2>7. Reflexión individual</h2>
 <label><input type="checkbox"><span> Se entrega reflexión individual.</span></label>
 <label><input type="checkbox"><span> La reflexión es crítica y no solo descriptiva.</span></label>
 <label><input type="checkbox"><span> Se identifican aprendizajes técnicos y humanos.</span></label>
@@ -155,7 +168,7 @@ function guardar() {
     });
 
     localStorage.setItem("metalChecklist", JSON.stringify(datos));
-    alert("🔥 Progreso guardado, guerrero 🔥");
+    alert("🔥 Progreso guardado, metalero 🤘🔥");
 }
 
 function cargar() {
